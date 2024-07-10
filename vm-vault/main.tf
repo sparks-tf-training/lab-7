@@ -74,6 +74,9 @@ resource "azurerm_virtual_machine" "example" {
   network_interface_ids = [azurerm_network_interface.example.id]
   vm_size               = "Standard_B1ls"
 
+  delete_os_disk_on_termination    = true
+  delete_data_disks_on_termination = true
+
   identity {
     type         = "SystemAssigned, UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.example.id]
@@ -129,6 +132,10 @@ output "vm_name" {
 
 output "vm_id" {
   value = azurerm_virtual_machine.example.id
+}
+
+output "identity_id" {
+  value = azurerm_user_assigned_identity.example.principal_id
 }
 
 output "password" {

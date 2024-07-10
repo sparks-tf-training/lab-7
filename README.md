@@ -78,7 +78,12 @@ The Machine access policy is a policy that allows a virtual machine to access th
     terraform init
     terraform apply
     ```
-9. SSH into the virtual machine and check if the secret is accessible by running the following command:
+9. SSH into the virtual machine
+    * Get the password by running `terraform output -json | jq .password`
+    * Get the public IP by running `terraform output -json | jq .public_ip`
+    * Get the identity by running `terraform output -json | jq .identity_id`
+    * On the machine, login to azure with `az login --identity --username <identity> --allow-no-subscriptions` 
+    * check if the secret is accessible by running the following command:
     ```bash
     az keyvault secret show --vault-name <key_vault_name> --name <secret_name> --query value -o tsv
     ```
