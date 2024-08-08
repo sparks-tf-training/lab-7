@@ -1,0 +1,5 @@
+key_vault_id        = "/subscriptions/52f807ce-4261-4df0-b2de-5e1faf190119/resourceGroups/terraform-training/providers/Microsoft.KeyVault/vaults/vaultGEpTq1vZ"
+resource_group_name = "terraform-training"
+vnet                = "production-vnet"
+subnet              = "sub1"
+name                = "test-lab7"
